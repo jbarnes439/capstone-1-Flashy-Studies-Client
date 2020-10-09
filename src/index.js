@@ -8,7 +8,7 @@ const app = (
   <React.StrictMode>
     <BrowserRouter>
       <App />
-    </BrowserRouter>
+    </BrowserRouter>    
   </React.StrictMode>
 );
 
