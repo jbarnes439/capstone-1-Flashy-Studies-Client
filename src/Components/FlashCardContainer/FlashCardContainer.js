@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PreMadeQuizContext from '../../contexts/PreMadeQuizContext';
 import PreMadeQuizService from '../../services/premade-quiz-api-service';
 import ListCards from '../ListCards/ListCards';
+import TokenService from '../../services/token-service';
 
 class FlashCardContainer extends Component {
   static contextType = PreMadeQuizContext;
@@ -24,13 +25,18 @@ class FlashCardContainer extends Component {
     this.setState({ showAnswer: !doesShow })
   }
 
-  renderShowButton() {
+  handleGoBackClick = () => {
+    const username = TokenService.getUsername()
+    this.props.history.push(`/user/${username}`)
+  }
+
+  renderShowButton = () => {
     return (
       <button onClick={this.toggleShowAnswers}>Show Answers</button>
     )
   }
 
-  renderHideButton() {
+  renderHideButton = () =>{
     return (
       <button onClick={this.toggleShowAnswers}>Hide Answers</button>
     )
@@ -54,7 +60,7 @@ class FlashCardContainer extends Component {
               question={question}
               key={id} />
         )}
-
+        <button onClick={this.handleGoBackClick}>Go back</button>
       </div>
     )
   }
