@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import LoginForm from '../LoginForm/LoginForm';
 import { Section } from '../../Utilities/Utilities';
+import TokenService from '../../services/token-service';
 
 export default class LoginPage extends Component {
   static defaultProps = {
@@ -8,13 +9,11 @@ export default class LoginPage extends Component {
     history: {
       push: () => { },
     },
-  }
+  }  
 
   handleLoginSuccess = () => {
-    const { location, history } = this.props
-    
-    const destination = (location.state || {}).from || '/'
-    history.push(destination)
+    const username = TokenService.getUsername()
+    this.props.history.push(`/user/${username}`)    
   }
 
   render() {

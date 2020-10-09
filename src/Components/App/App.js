@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PublicOnlyRoute from '../../Utilities/PublicRoute';
-import PrivateOnlyRoute from '../../Utilities/PrivateRoute';
+// import PrivateOnlyRoute from '../../Utilities/PrivateRoute';
 import Header from '../Header/Header';
+import LandingPage from '../LandingPage/LandingPage';
 import RegisterPage from '../Register-page/Register-page';
 import LoginPage from '../LoginPage/LoginPage';
 import UserHomePage from '../UserHomePage/UserHomePage';
 import QuizPage from '../QuizPage/QuizPage';
+import FlashCardContainer from '../FlashCardContainer/FlashCardContainer';
 import { UserProvider } from '../../contexts/UserContext';
 import { PreMadeQuizProvider } from '../../contexts/PreMadeQuizContext';
 
@@ -30,10 +32,10 @@ class App extends Component {
             <main className='App_main'>
               {this.state.hasError && <p className='red'>Whoopsies! There was an error!</p>}
               <Switch>
-                {/* <Route exact
-              path={'/'}
-              component={HomePage} 
-            /> */}
+                <Route exact
+                  path={'/'}
+                  component={LandingPage}
+                />
                 <PublicOnlyRoute
                   path={'/register'}
                   component={RegisterPage}
@@ -49,6 +51,10 @@ class App extends Component {
                 <Route
                   path={'/quizpage'}
                   component={QuizPage}
+                />
+                <Route
+                  path={'/flashcards'}
+                  component={FlashCardContainer}
                 />
               </Switch>
             </main>

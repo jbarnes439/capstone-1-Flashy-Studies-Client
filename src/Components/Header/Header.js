@@ -4,8 +4,18 @@ import TokenService from '../../services/token-service';
 import './Header.css';
 
 export default class Header extends Component {
+  static defaultProps = {
+    location: {},
+    history: {
+      push: () => { },
+    },
+  }
+
   handleLogoutClick = () => {
+    this.props.history.push('/')
     TokenService.clearAuthToken();
+    TokenService.clearUsername();
+    this.renderLoginLink();
   }
 
   renderLogoutLink() {
@@ -15,7 +25,7 @@ export default class Header extends Component {
           onClick={this.handleLogoutClick}
           to='/'>
           Logout
-          </Link>
+        </Link>
       </div>
     )
   }
@@ -23,18 +33,17 @@ export default class Header extends Component {
   renderLoginLink() {
     return (
       <div className='navigation'>
-        <li>
+
         <Link
           to='/login'>
-          Login
+          <li>Login</li>
         </Link>
-        </li>
-        <li>        
+
         <Link
           to='/register'>
-          Sign up!
+          <li>Sign up!</li>
         </Link>
-        </li>
+
       </div>
     )
   }
@@ -52,11 +61,11 @@ export default class Header extends Component {
           </div>
 
           <ul className='navigation'>
-          {TokenService.hasAuthToken()
-          ? this.renderLogoutLink()
-          : this.renderLoginLink()}
+            {TokenService.hasAuthToken()
+              ? this.renderLogoutLink()
+              : this.renderLoginLink()}
           </ul>
-        </div>      
+        </div>
       </div>
     </>
 

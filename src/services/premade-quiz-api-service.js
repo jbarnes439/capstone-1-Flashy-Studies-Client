@@ -18,7 +18,16 @@ const PreMadeQuizService = {
         ? res.json().then(e => Promise.reject(e))
         : res.json()
     )
-  }
+  },
+
+  getAllCorrectAnswers() {
+    return fetch(`${config.API_ENDPOINT}/preMadeAnswers/correct`)
+    .then(res =>
+      (!res.ok)
+      ? res.json().then(e => Promise.reject(e))
+      : res.json()
+    )
+  },
 }
 
 export default PreMadeQuizService;

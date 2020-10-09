@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PreMadeQuizService from '../../services/premade-quiz-api-service';
 import PreMadeQuizContext from '../../contexts/PreMadeQuizContext';
 import QuestionContainer from '../QuestionContainer/QuestionContainer';
+import QuizProgress from '../QuizProgress/QuizProgress';
 
 class QuizPage extends Component {
   static contextType = PreMadeQuizContext;
@@ -22,6 +23,13 @@ class QuizPage extends Component {
     })
   }
 
+  handleTakeAgain = () => {
+    this.setState({
+      score: 0,
+      responses: 0
+    })
+  }
+
   componentDidMount() {
     this.context.clearError()
     PreMadeQuizService.getAllQuestions()
@@ -37,7 +45,7 @@ class QuizPage extends Component {
     if (this.state.responses < 10) {
       return (
         <div className='quizContainer'>
-          <div className='quizTitle'><h2>Example Quiz</h2></div>
+          <div className='quizTitle'><h2>Example FlashCards</h2></div>
           {this.context.questions.length > 0 && this.context.questions.map(
             ({ question, id }) =>
               <QuestionContainer
@@ -47,14 +55,16 @@ class QuizPage extends Component {
                 question={question}
                 key={id} />
           )}
-          <h2>So far you're score is {this.state.score} </h2>
-          <h3>You have answered {this.state.responses} </h3>
+          <QuizProgress 
+            score={this.state.score}
+            responses={this.state.responses} />
         </div>
       )
     }
     return (
       <div>
         <h2>You got {this.state.score} correct!</h2>
+        <button onClick={this.handleTakeAgain}>Take Again</button>
       </div>
     )
   }
