@@ -45,7 +45,7 @@ class QuizPage extends Component {
     if (this.state.responses < 10) {
       return (
         <div className='quizContainer'>
-          <div className='quizTitle'><h2>Example FlashCards</h2></div>
+          <div className='quizTitle'><h2>Quick Quiz</h2></div>
           {this.context.questions.length > 0 && this.context.questions.map(
             ({ question, id }) =>
               <QuestionContainer

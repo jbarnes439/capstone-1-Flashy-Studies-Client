@@ -13,9 +13,10 @@
 }
 
 .inner_header {
-  width:1000px;
+  width:100%;
   height: 100%;
-  display: block;
+  display: flex;
+  justify-content: space-between;
   margin: 0 auto;
 }
 
@@ -41,19 +42,19 @@
 
 .navigation {
   float: right;
-  height: 100px;
+  height: 25px;
 }
 
 .navigation a{
   height: 100%;
   display: table;
   float: left;
-  padding: 0px 20px;
+  padding: 10px 20px;
   color: white;  
 }
 
 .navigation a li {
-  display: table-cell;
+  display: flex;
   vertical-align: middle;
   height: 100%;
   color: white;
@@ -67,3 +68,5 @@ a:visited, a:link {
 a:hover {
   color: rgb(184, 184, 245);
 }
+
+

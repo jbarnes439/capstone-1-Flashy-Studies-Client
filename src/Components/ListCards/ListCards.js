@@ -9,7 +9,7 @@ const ListCards = (props) => {
         <div className='card'>
           <h3>{props.question}</h3>
           <br />
-          {props.answers.map(a => <p>{a.answer}</p>)}
+          {props.answers.map(a => <p key={a.id}>{a.answer}</p>)}
         </div>
       </div>
     )
