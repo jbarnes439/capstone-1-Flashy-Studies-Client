@@ -3,6 +3,7 @@ import PreMadeQuizService from '../../services/premade-quiz-api-service';
 import PreMadeQuizContext from '../../contexts/PreMadeQuizContext';
 import QuestionContainer from '../QuestionContainer/QuestionContainer';
 import QuizProgress from '../QuizProgress/QuizProgress';
+import TokenService from '../../services/token-service';
 
 class QuizPage extends Component {
   static contextType = PreMadeQuizContext;
@@ -28,6 +29,11 @@ class QuizPage extends Component {
       score: 0,
       responses: 0
     })
+  }
+
+  handleGoBackClick = () => {
+    const username = TokenService.getUsername()
+    this.props.history.push(`/user/${username}`)
   }
 
   componentDidMount() {
@@ -58,6 +64,7 @@ class QuizPage extends Component {
           <QuizProgress 
             score={this.state.score}
             responses={this.state.responses} />
+          <button onClick={this.handleGoBackClick}>Go back</button>
         </div>
       )
     }

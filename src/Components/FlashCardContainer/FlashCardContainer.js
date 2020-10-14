@@ -13,14 +13,25 @@ class FlashCardContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {      
-      isFlipped: false,
+      isFlipped: {3: true, 7: true, 10: true}
     }
     this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick(event) {
+  handleClick(event, id) {
     event.preventDefault();
-    this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+    // this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+    this.setState({
+      isFlipped: {...this.state.isFlipped, [id]: !this.state.isFlipped[id]}
+    })
+    
+    // map to create new is flipped object with the particular id as true or false depending on flip direction
+    // {3: true, 7: false, 10: true}
+
+    // {3: false, 7: false, 10: true}
+
+    // e => this.handleClick(e, id)
+    
   }
 
   componentDidMount() {
@@ -44,7 +55,7 @@ class FlashCardContainer extends Component {
         {this.context.questions.length > 0 && this.context.questions.map(
           ({ question, id }) =>
             <ReactCardFlip
-              isFlipped={this.state.isFlipped}
+              isFlipped={this.state.isFlipped[id]}
               flipSpeedBackToFront={0.2}
               flipSpeedFrontToBack={0.2}
               flipDirection="vertical"
@@ -53,12 +64,13 @@ class FlashCardContainer extends Component {
               <CardFront
                 question={question}
                 key={id}
-                click={this.handleClick}
+                click={e => this.handleClick(e, id)}
               />
-
+              
               <CardBack
-                answers={this.context.answers.filter(answer => answer.question_id === id)}
-                click={this.handleClick}
+                answers={this.context.answers.find(answer => answer.question_id === id)}
+                key={id}
+                click={e => this.handleClick(e, id)}
               />
 
             </ReactCardFlip>
@@ -67,7 +79,7 @@ class FlashCardContainer extends Component {
       </div>
     )
   }
-  
+
   render() {
     return (
       <div>

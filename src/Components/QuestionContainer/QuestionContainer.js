@@ -15,7 +15,7 @@ const QuestionContainer = ({ question, answerOptions, answerClick }) => {
             </button>
           }
           if (answers !== a.id) {
-            return <p className='grey'>{a.answer}</p>
+            return <p className='hide'>{a.answer}</p>
           } else {
             return <p className='blue'>{a.answer}</p>
           }

@@ -1,5 +1,5 @@
 export default {
-  API_ENDPOINT: 'https://pure-sea-96268.herokuapp.com/api',
+  API_ENDPOINT: 'http://localhost:2020/api',
   TOKEN_KEY: 'auth-token-goes-here',
   USERNAME: 'current-user'
 }

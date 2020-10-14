@@ -28,20 +28,20 @@ export default class UserHomePage extends Component {
     return <h2>Welcome to Flashy Studies {user}!</h2>   
   }
 
-  renderTopicSelections() {      
-    return this.context.topics.map(t => <option value={t.topic}>{t.topic}</option>)
-  }
+  // renderTopicSelections() {      
+  //   return this.context.topics.map(t => <option value={t.topic}>{t.topic}</option>)
+  // }
 
   componentDidMount() {
     this.context.clearError()
     PreMadeQuizService.getAllTopics()
       .then(this.context.setTopics)
-      .catch(this.context.setError)      
+      .catch(this.context.setError)  
   }
 
   render() {      
     let content = this.renderUser()
-    let topics = this.renderTopicSelections()
+    // let topics = this.renderTopicSelections()
 
     return (
       <div>
