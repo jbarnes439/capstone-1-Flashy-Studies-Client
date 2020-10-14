@@ -13,25 +13,16 @@ class FlashCardContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {      
-      isFlipped: {3: true, 7: true, 10: true}
+      isFlipped: {}
     }
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick(event, id) {
-    event.preventDefault();
-    // this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
+    // event.preventDefault();    
     this.setState({
       isFlipped: {...this.state.isFlipped, [id]: !this.state.isFlipped[id]}
-    })
-    
-    // map to create new is flipped object with the particular id as true or false depending on flip direction
-    // {3: true, 7: false, 10: true}
-
-    // {3: false, 7: false, 10: true}
-
-    // e => this.handleClick(e, id)
-    
+    })  
   }
 
   componentDidMount() {
@@ -56,8 +47,8 @@ class FlashCardContainer extends Component {
           ({ question, id }) =>
             <ReactCardFlip
               isFlipped={this.state.isFlipped[id]}
-              flipSpeedBackToFront={0.2}
-              flipSpeedFrontToBack={0.2}
+              flipSpeedBackToFront={0.5}
+              flipSpeedFrontToBack={0.5}
               flipDirection="vertical"
             >
 
@@ -68,7 +59,7 @@ class FlashCardContainer extends Component {
               />
               
               <CardBack
-                answers={this.context.answers.find(answer => answer.question_id === id)}
+                answers={this.context.answers.filter(answer => answer.question_id === id)}
                 key={id}
                 click={e => this.handleClick(e, id)}
               />

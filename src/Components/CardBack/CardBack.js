@@ -5,7 +5,7 @@ const CardBack = (props) => {
   return (
     <div className='cardBack'>
       {props.answers.map(a => <h4 key={a.id}>{a.answer}</h4>)}
-      <button onClick={event => props.click(event)}>Flip Cards</button>
+      <button onClick={event => props.click(event)}>Flip Card</button>
     </div>
   )
 }
