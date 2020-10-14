@@ -36,8 +36,7 @@ class QuizPage extends Component {
     this.props.history.push(`/user/${username}`)
   }
 
-  componentDidMount() {
-    this.context.clearError()
+  componentDidMount() {    
     PreMadeQuizService.getAllQuestions()
       .then(this.context.setQuestions)
       .catch(this.context.setError)
@@ -52,7 +51,7 @@ class QuizPage extends Component {
       return (
         <div className='quizContainer'>
           <div className='quizTitle'><h2>Quick Quiz</h2></div>
-          {this.context.questions.length > 0 && this.context.questions.map(
+          {this.context.questions !== undefined && (this.context.questions.length > 0 && this.context.questions.map(
             ({ question, id }) =>
               <QuestionContainer
                 // need to also send answers to the specific question 
@@ -60,7 +59,7 @@ class QuizPage extends Component {
                 answerClick={this.handleUserAnswer}
                 question={question}
                 key={id} />
-          )}
+          ))}
           <QuizProgress 
             score={this.state.score}
             responses={this.state.responses} />

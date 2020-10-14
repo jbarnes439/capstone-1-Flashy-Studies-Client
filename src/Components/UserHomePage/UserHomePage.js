@@ -32,8 +32,7 @@ export default class UserHomePage extends Component {
   //   return this.context.topics.map(t => <option value={t.topic}>{t.topic}</option>)
   // }
 
-  componentDidMount() {
-    this.context.clearError()
+  componentDidMount() {    
     PreMadeQuizService.getAllTopics()
       .then(this.context.setTopics)
       .catch(this.context.setError)  

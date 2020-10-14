@@ -1,14 +1,14 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import RegisterPage from './Register-Page';
-// import { expect } from 'chai';
+import LoginForm from './LoginForm';
+
+
 
 configure({ adapter: new Adapter()})
 
-describe('<LoginPage />', () => {
+describe('<LoginForm />', () => {
   it('should render without crashing', () => {
-    const wrapper = shallow(<RegisterPage />);
-    expect(wrapper.find(<h2>Register here!</h2>))
+    shallow(<LoginForm />);    
   })
 })

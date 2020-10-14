@@ -1,14 +1,14 @@
 import React from 'react';
 import { configure, shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import LandingPage from './LandingPage';
+import RegisterPage from './RegisterPage';
 
 
 
 configure({ adapter: new Adapter()})
 
-describe('<LandingPage />', () => {
+describe('<RegisterPage />', () => {
   it('should render without crashing', () => {
-    shallow(<LandingPage />);    
+    shallow(<RegisterPage />);    
   })
 })

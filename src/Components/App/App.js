@@ -4,7 +4,7 @@ import PublicOnlyRoute from '../../Utilities/PublicRoute';
 // import PrivateOnlyRoute from '../../Utilities/PrivateRoute';
 import Header from '../Header/Header';
 import LandingPage from '../LandingPage/LandingPage';
-import RegisterPage from '../Register-page/Register-page';
+import RegisterPage from '../RegisterPage/RegisterPage';
 import LoginPage from '../LoginPage/LoginPage';
 import UserHomePage from '../UserHomePage/UserHomePage';
 import QuizPage from '../QuizPage/QuizPage';
