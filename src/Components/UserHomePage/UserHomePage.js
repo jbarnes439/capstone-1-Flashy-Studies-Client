@@ -35,7 +35,7 @@ export default class UserHomePage extends Component {
   componentDidMount() {    
     PreMadeQuizService.getAllTopics()
       .then(this.context.setTopics)
-      .catch(this.context.setError)  
+      .catch(this.context.setError)
   }
 
   render() {      
@@ -52,6 +52,7 @@ export default class UserHomePage extends Component {
       {/* <select>
         {topics}
       </select> */}
+      <img src={require('../../images/library.jpeg')} alt='A curvy library' />
       </div>
     )
   }

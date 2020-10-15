@@ -5,3 +5,9 @@ button {
   color: inherit;
   margin: 15px;
 }
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
