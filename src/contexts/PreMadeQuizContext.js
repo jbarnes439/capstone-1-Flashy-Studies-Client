@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { shuffle } from '../Utilities/Utilities';
 
 
 const PreMadeQuizContext = React.createContext({
-
   questions: [],
   answers: [],
   topics: [],
@@ -37,6 +37,7 @@ export class PreMadeQuizProvider extends Component {
   }
 
   setQuestions = questions => {
+    questions = shuffle(questions);
     this.setState({ questions })
   }
 
@@ -48,6 +49,7 @@ export class PreMadeQuizProvider extends Component {
   }
 
   setAnswers = answers => {
+    answers = shuffle(answers);
     this.setState({ answers })
   }
 

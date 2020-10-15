@@ -4,6 +4,7 @@ import PreMadeQuizContext from '../../contexts/PreMadeQuizContext';
 import QuestionContainer from '../QuestionContainer/QuestionContainer';
 import QuizProgress from '../QuizProgress/QuizProgress';
 import TokenService from '../../services/token-service';
+import { shuffle } from '../../Utilities/Utilities';
 
 class QuizPage extends Component {
   static contextType = PreMadeQuizContext;
@@ -38,21 +39,23 @@ class QuizPage extends Component {
 
   componentDidMount() {    
     PreMadeQuizService.getAllQuestions()
-      .then(this.context.setQuestions)
+      .then(this.context.setQuestions)      
       .catch(this.context.setError)
     PreMadeQuizService.getAllAnswers()
       .then(this.context.setAnswers)
-      .catch(this.context.setError)
+      .catch(this.context.setError)  
   }
 
   render() {
+
+    
 
     if (this.state.responses < 10) {
       return (
         <div className='quizContainer'>
           <div className='quizTitle'><h2>Quick Quiz</h2></div>
           {this.context.questions !== undefined && (this.context.questions.length > 0 && this.context.questions.map(
-            ({ question, id }) =>
+            ({ question, id }) =>              
               <QuestionContainer
                 // need to also send answers to the specific question 
                 answerOptions={this.context.answers.filter(answer => answer.question_id === id)}
@@ -71,6 +74,7 @@ class QuizPage extends Component {
       <div>
         <h2>You got {this.state.score} correct!</h2>
         <button onClick={this.handleTakeAgain}>Take Again</button>
+        <button onClick={this.handleGoBackClick}>Go Home</button>
       </div>
     )
   }

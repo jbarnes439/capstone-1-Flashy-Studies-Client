@@ -18,7 +18,7 @@ export default class LoginForm extends Component {
     const { username, password } = event.target
 
     AuthApiService.postLogin({
-      username: username.value,
+      username: username.value.toLowerCase(),
       password: password.value,
     })
       .then(res => {

@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './QuestionContainer.css';
+import { shuffle } from '../../Utilities/Utilities';
 
 const QuestionContainer = ({ question, answerOptions, answerClick }) => {
   const [answers, setAnswers] = useState(null);
+  
 
   return (
     <div className='questionContainer'>
       <div className='question'>{question}
         <br />
         {(answerOptions) ?
-          answerOptions.map(a => {
+          (answerOptions).map(a => {
             if (!answers) {
               return <button key={a.id} className='AnswerButton' onClick={() => { answerClick(a); setAnswers(a.id) }}>
                 {a.answer}
