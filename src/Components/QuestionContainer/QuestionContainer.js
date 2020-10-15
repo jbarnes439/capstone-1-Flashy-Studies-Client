@@ -11,14 +11,14 @@ const QuestionContainer = ({ question, answerOptions, answerClick }) => {
         {(answerOptions) ?
           answerOptions.map(a => {
             if (!answers) {
-              return <button className='AnswerButton' onClick={() => { answerClick(a); setAnswers(a.id) }}>
+              return <button key={a.id} className='AnswerButton' onClick={() => { answerClick(a); setAnswers(a.id) }}>
                 {a.answer}
               </button>
             }
             if (answers !== a.id) {
-              return <p className='hide'>{a.answer}</p>
+              return <p key={a.id }className='hide'>{a.answer}</p>
             } else {
-              return <p className='blue'>{a.answer}</p>
+              return <p key={a.id }className='blue'>{a.answer}</p>
             }
           })
           : <div>loading</div>

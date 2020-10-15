@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PreMadeQuizService from '../../services/premade-quiz-api-service';
 import PreMadeQuizContext from '../../contexts/PreMadeQuizContext';
 import TokenService from '../../services/token-service';
 import { Section } from '../../Utilities/Utilities';
@@ -13,9 +12,9 @@ export default class UserHomePage extends Component {
     history: {
       push: () => { },
     },
-  }  
+  }
 
-  handleTakeQuiz = () => {    
+  handleTakeQuiz = () => {
     this.props.history.push('/quizpage')
   }
 
@@ -23,36 +22,23 @@ export default class UserHomePage extends Component {
     this.props.history.push('/flashcards')
   }
 
-  renderUser() {    
+  renderUser() {
     const user = TokenService.getUsername()
-    return <h2>Welcome to Flashy Studies {user}!</h2>   
+    return <h2>Welcome to Flashy Studies {user}!</h2>
   }
 
-  // renderTopicSelections() {      
-  //   return this.context.topics.map(t => <option value={t.topic}>{t.topic}</option>)
-  // }
 
-  componentDidMount() {    
-    PreMadeQuizService.getAllTopics()
-      .then(this.context.setTopics)
-      .catch(this.context.setError)
-  }
-
-  render() {      
+  render() {
     let content = this.renderUser()
-    // let topics = this.renderTopicSelections()
 
     return (
       <div>
-      <Section className='UserPage'>
-        {content}
-      </Section>
-      <button onClick={this.handleTakeQuiz}> Take a quiz! </button>
-      <button onClick={this.handleStudyFlashCards}> Study </button>
-      {/* <select>
-        {topics}
-      </select> */}
-      <img src={require('../../images/library.jpeg')} alt='A curvy library' />
+        <Section className='UserPage'>
+          {content}
+        </Section>
+        <button onClick={this.handleTakeQuiz}> Take a quiz! </button>
+        <button onClick={this.handleStudyFlashCards}> Study </button>
+        <img src={require('../../images/library.jpeg')} alt='A curvy library' />
       </div>
     )
   }
