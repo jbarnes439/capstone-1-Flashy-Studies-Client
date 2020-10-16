@@ -4,7 +4,7 @@ import { shuffle } from '../../Utilities/Utilities';
 
 const QuestionContainer = ({ question, answerOptions, answerClick }) => {
   const [answers, setAnswers] = useState(null);
-  
+
 
   return (
     <div className='questionContainer'>
@@ -18,9 +18,11 @@ const QuestionContainer = ({ question, answerOptions, answerClick }) => {
               </button>
             }
             if (answers !== a.id) {
-              return <p key={a.id }className='hide'>{a.answer}</p>
+              return <p key={a.id} className='hide'>{a.answer}</p>
+            } if (a.correct) {
+              return <p key={a.id} className='blue'>{a.answer}</p>
             } else {
-              return <p key={a.id }className='blue'>{a.answer}</p>
+              return <p key={a.id} className='red'>{a.answer}</p>
             }
           })
           : <div>loading</div>

@@ -10,7 +10,7 @@ const LandingPage = () => {
         <h2>About</h2>
         <p>
           Welcome to flashy studies! A mobile app designed for students
-          on the go! (We may save you a few trees a long the way!) 
+          on the go! (We may even save a few trees along the way!) 
           Flash cards are an integral part of learning, some might say.
           Well, here at flashy studies we say that anyway. Every student
           has had to spend time writing their flashcards, carrying them around,
