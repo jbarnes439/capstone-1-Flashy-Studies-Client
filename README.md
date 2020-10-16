@@ -4,9 +4,14 @@
 ## Flashy-Studies App:
   Flashy-studies is an app that allows users to take their flashcards with them! Due to time constraints the app is currently limited to a demonstration of what the end product will look like. A user is able to quiz themself over a set of flashcards already in the database. As I continue to add to this project, that database of flashcards will continue to grow. In the future a user will also be able to create their own flashcards for study online, as this was the original idea for the app.
 
+#### Screenshot of the flashcard page.
 ![Flashcard screenshot](./src/images/flashcards-midflip.png "Flashcard page screenshot")
 
+#### Screenshot of the quiz page.
 ![quiz screenshot](./src/images/mid-quiz.png "Quiz page screenshot")
+
+#### Screenshot of the user home page.
+![user home screenshot](./src/images/user-home.png "User Home screenshot")
 
 
 ## Technologies:
