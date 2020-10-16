@@ -4,7 +4,7 @@ import './CardFront.css';
 const CardFront = (props) => {
   return (
     <div className='cardFront'>
-      <h3>{props.question}</h3>
+      <p>{props.question}</p>
       <button onClick={event => props.click(event)}>Flip Card</button>
     </div>
   )

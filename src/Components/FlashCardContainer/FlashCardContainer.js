@@ -29,9 +29,7 @@ class FlashCardContainer extends Component {
       .catch(this.context.setError)
     PreMadeQuizService.getAllCorrectAnswers()
       .then(this.context.setAnswers)
-      .catch(this.context.setError)
-
-    
+      .catch(this.context.setError)    
   }  
 
   handleGoBackClick = () => {
@@ -59,8 +57,7 @@ class FlashCardContainer extends Component {
                 click={e => this.handleClick(e, id)}
               />
               
-              <CardBack
-                // answers={this.context.answers.filter(answer => answer.question_id === id)}
+              <CardBack                
                 answer={this.context.answers.find(answer => answer.question_id === id)}
                 key={id}
                 click={e => this.handleClick(e, id)}

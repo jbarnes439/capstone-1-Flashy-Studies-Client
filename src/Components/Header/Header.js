@@ -20,31 +20,31 @@ class Header extends Component {
 
   renderLogoutLink() {
     return (
-      <div className='navigation'>
+      <li>
         <Link
           onClick={this.handleLogoutClick}
           to='/'>
           Logout
         </Link>
-      </div>
+      </li>
     )
   }
 
   renderLoginLink() {
     return (
-      <div className='navigation'>
+      <li>
 
         <Link
           to='/login'>
-          <li>Login</li>
+          Login
         </Link>
 
         <Link
           to='/register'>
-          <li>Sign up!</li>
+          Sign up!
         </Link>
-
-      </div>
+        
+      </li>
     )
   }
 

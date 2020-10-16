@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './QuestionContainer.css';
-import { shuffle } from '../../Utilities/Utilities';
 
 const QuestionContainer = ({ question, answerOptions, answerClick }) => {
   const [answers, setAnswers] = useState(null);
-
 
   return (
     <div className='questionContainer'>

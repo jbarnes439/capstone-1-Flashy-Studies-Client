@@ -6,3 +6,8 @@
   padding: 16px;
   text-align: center;
 }
+
+.cardFront p {
+  font-size: 18px;
+  font-weight: 700;
+}
