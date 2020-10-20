@@ -43,7 +43,7 @@ class Header extends Component {
           to='/register'>
           Sign up!
         </Link>
-        
+
       </li>
     )
   }

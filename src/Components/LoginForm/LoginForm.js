@@ -38,7 +38,10 @@ export default class LoginForm extends Component {
         this.props.onLoginSuccess()
       })
       .catch(res => {
-        this.setState({ error: res.error })
+        this.setState({ 
+          error: res.error,
+          loading: false
+         })
       })
   }
 
@@ -66,7 +69,7 @@ export default class LoginForm extends Component {
         </div>
         <div className='password'>
           <label htmlFor='LoginForm_password'>
-            Password
+            Password 
             </label>
           <Input
             required

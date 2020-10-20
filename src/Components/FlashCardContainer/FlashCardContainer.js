@@ -5,6 +5,7 @@ import PreMadeQuizService from '../../services/premade-quiz-api-service';
 import CardFront from '../CardFront/CardFront';
 import CardBack from '../CardBack/CardBack';
 import TokenService from '../../services/token-service';
+import './FlashCardContainer.css'
 
 class FlashCardContainer extends Component {
   static contextType = PreMadeQuizContext;
@@ -41,6 +42,7 @@ class FlashCardContainer extends Component {
 
     return (
       <div className='studyContainer'>
+        <button onClick={this.handleGoBackClick}>Return Home</button>
         {this.context.questions !== undefined && (this.context.questions.length > 0 && this.context.questions.map(
           ({ question, id }) =>
             <ReactCardFlip
@@ -64,8 +66,7 @@ class FlashCardContainer extends Component {
               />
 
             </ReactCardFlip>
-        ))}
-        <button onClick={this.handleGoBackClick}>Go back</button>
+        ))}        
       </div>
     )
   }
