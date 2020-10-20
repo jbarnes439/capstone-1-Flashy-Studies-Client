@@ -23,8 +23,8 @@ h5 {
   padding: 1em 1em;
 }
 
-.about {
-  padding: 0px 5px;
+.about h2 {
+  padding: 0px 0px;
 }
 
 .about p {
